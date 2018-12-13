@@ -13,12 +13,15 @@
 #variable "region"           {}
 
 # OCI Profile
-variable "tenant"               {default = "your_tenant_name"}  
+variable "tenant"               {default = "your_tenancy_name"}  
 variable "tenancy_ocid"         {default = "ocid1.tenancy.oc1..key"}
 variable "compartment_ocid"     {default = "ocid1.tenancy.oc1..key"}
 variable "user_ocid"            {default = "ocid1.user.oc1..key"}
 variable "fingerprint"          {default = "key"}
+
+# Key used to SSH to OCI VMs
 variable "private_key_path"     {default = "~/.ssh"}
+variable "ssh_public_key"       { your_ssh_public_key }
 
 # Object Storage
 variable "bucket"		{default = "fusion_metadata"}
@@ -27,8 +30,8 @@ variable "secretkey"	 	{default = "your_secret_key"}
 variable "endpointurl" {
    type = "map" 
    default = { 
-     us-phoenix-1 = "https://your_tentant_name.compat.objectstorage.us-phoenix-1.oraclecloud.com"
-     us-ashburn-1 = "https://your_tentant_name.compat.objectstorage.us-ashburn-1.oraclecloud.com"
+     us-phoenix-1 = "https://your_tenancy_name.compat.objectstorage.us-phoenix-1.oraclecloud.com"
+     us-ashburn-1 = "https://your_tenancy_name.compat.objectstorage.us-ashburn-1.oraclecloud.com"
    }
 }
 
@@ -62,8 +65,6 @@ variable "zone" {
    }
 }
 
-# Key used to SSH to OCI VMs
-variable "ssh_public_key" { your_ssh_public_key k}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Optional variables
