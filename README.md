@@ -23,11 +23,11 @@ The goal is the keep OCI Object Storage data in sync contained in two regions. F
 ### Buckets and Regions
 In this example, we will setup object storage data replication between two OCI regions: us-asburn-1 and us-phoenix-1. 
 
-To configure the software you will need 2 storage containers (buckets). These first 2 buckets will contain the Fusion metadata so lets call this bucket fusion_metadata.  So for each region, we must make a bucket with this name. Other storage buckets may contain the actual user data. If these do not exist, you can make them later before you establish the replication rules in Fusion.
+To configure the software, you will need two storage containers (buckets). These buckets will contain the Fusion metadata, so let's name them both *fusion_metadata*.  So for each region, we must make a bucket with this name. Other storage buckets may contain the actual user data. If these do not exist, you can make them later before you establish the replication rules in Fusion.
 
-If you have not set up your user account for use with an S3 API or cli,  make your Customer Secret Keys to create an access key and secret key. This is described [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcredentials.htm?Highlight=secretkey#). These extra keys are used as shown below in addition to the user-specific keys you discovered in the pre-req exercise.
+If you have not set up your OCI user account for use with an S3 API or cli, make your Customer Secret Keys to create an access key and secret key. This is described [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcredentials.htm?Highlight=secretkey#). These extra keys are used as shown below in addition to the user-specific keys you discovered in the pre-req exercise.
 
-Before you perform the terraform provision tasks,  you will need to update the `region.tf and `variables.tf` files with values specific to your account and needs.  You just need enter the variables in this file: `terraform1/variables.tf` as the terraform2/variables.tf is a linked file. Again, information about the needed variables and where to obtain them is described in more detail the previous pre-requisite section. Here is list of the variables you will need to supply at this point:
+Before you perform the Terraform tasks, you will need to update the [variables.tf](./terraform1/variables.tf) file with values specific to your account and needs.  You just need enter the variable information in the file in `terraform1` as the second version is a linked file. The region is specified in the `region.tf` file for each instance. Again, information about the various OCI variables and where to obtain them is described in more detail the previous pre-requisite section. Here is list of the variables you will need to supply at this point:
 
 ```
 ### OCI Profile
@@ -47,7 +47,7 @@ variable "endpointurl" {
    type = "map" 
    default = { 
      us-phoenix-1 = "https://<your_tenancy_name>.compat.objectstorage.us-phoenix-1.oraclecloud.com"
-     us-ashburn-1 = "https://<our_tenancy_name>.compat.objectstorage.us-ashburn-1.oraclecloud.com"
+     us-ashburn-1 = "https://<your_tenancy_name>.compat.objectstorage.us-ashburn-1.oraclecloud.com"
    }
 }
 ```
@@ -112,7 +112,7 @@ Now enter the username and password you specified in [variables.tf](./terraform1
 
 ![](./images/06%20-%20Dashboard.png)
 
-At this point, the two servers are not yet configured as a replication pair.  We must *induct* the other server to create a dual-zone membership. After that process has completed (takes a minute or two), we can then create the actual replication policies. These are actual rules or definitions of which buckets to replicate.  Fusion will create an proxy server with a virtual object storage bucket that mirrors data into the underlying buckets residing in each region. 
+At this point, the two servers are not yet configured as a replication pair.  We must *induct* the other server to create a dual-zone membership. After that process has completed (takes a minute or two), we can then create the actual replication policies. These are actual rules or definitions of which buckets to replicate.  Fusion will create a proxy server with a virtual object storage bucket that mirrors data into the underlying buckets residing in each region. 
 
 Click on the "Nodes Tab" along the top, and then click on the "Induct" Button.
 If you are on the *Phoenix* server, enter the *Pubic IP* of the *Ashburn* server.
