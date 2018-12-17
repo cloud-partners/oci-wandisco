@@ -7,7 +7,7 @@ First off you'll need to do some pre-deploy setup.  That's all detailed [here](h
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/cloud-partners/oci-fusion.git
+    git clone https://github.com/cloud-partners/oci-wandisco.git
     cd oci-fusion
     ls
     cd terraform1
@@ -21,7 +21,7 @@ That should give you this:
 The goal is the keep OCI Object Storage data in sync contained in two regions. For replication with WANdisco Fusion, we need to provision at least two servers - one in each region. 
 
 ### Buckets and Regions
-In this example, we will setup object storage data replication between two OCI regions: us-asburn-1 and us-phoenix-1. 
+In this example, we will setup object storage data replication between two OCI regions: us-ashburn-1 and us-phoenix-1. 
 
 To configure the software, you will need two storage containers (buckets). These buckets will contain the Fusion metadata, so let's name them both *fusion_metadata*.  So for each region, we must make a bucket with this name. Other storage buckets may contain the actual user data. If these do not exist, you can make them later before you establish the replication rules in Fusion.
 
@@ -85,7 +85,7 @@ And this output should look like:
 ## Deploy
 If that all looks good as a pre-flight check, we can go ahead and do an *apply* - which deploys the plan:
 
-    cd ../terraform2
+    cd ../terraform1
     terraform apply -auto-approve |tee apply.txt
 
     cd ../terraform2
@@ -153,7 +153,7 @@ The click on the instance name "fusion_server" to see its details as shown here:
 ![](./images/09%20-%20console.png)
 
 ## Destroy the Deployment
-When you no longer need the deployment, you can run these commands to destroy the OCI insfrastructure you just built. 
+When you no longer need the deployment, you can run these commands to destroy the OCI infrastructure you just built. 
 
     cd ../terraform1
     terraform destroy
