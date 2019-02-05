@@ -1,4 +1,5 @@
-# oci-fusion
+# oci-wandisco
+
 [terraform](terraform) is a Terraform module that will deploy WANdisco Fusion with MultiCloud on OCI. Instructions on how to use it are below.
 
 ## Prerequisites
