@@ -9,7 +9,7 @@ Now, you'll want a local copy of this repo.  You can make that with the commands
 
     git clone https://github.com/oracle/oci-quickstart-wandisco.git
     cd oci-quickstart-wandisco
-    cd terraform
+    cd terraform1
     ls
 
 That should give you this:
