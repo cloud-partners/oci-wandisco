@@ -1,17 +1,15 @@
-# oci-wandisco
-
-[terraform](terraform) is a Terraform module that will deploy WANdisco Fusion with MultiCloud on OCI. Instructions on how to use it are below.
+# oci-quickstart-wandisco
+These are Terraform modules that deploy [WANdisco](https://www.wandisco.com/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  They are developed jointly by Oracle and WANdisco.
 
 ## Prerequisites
-First off you'll need to do some pre-deploy setup.  That's all detailed [here](https://github.com/cloud-partners/oci-prerequisites).
+First off you'll need to do some pre-deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
 
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/cloud-partners/oci-wandisco.git
-    cd oci-fusion
-    ls
-    cd terraform1
+    git clone https://github.com/oracle/oci-quickstart-wandisco.git
+    cd oci-quickstart-wandisco
+    cd terraform
     ls
 
 That should give you this:
