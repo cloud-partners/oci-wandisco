@@ -12,6 +12,12 @@ export FusionScripts="${BaseDir}/bin"
 
 cd "${BaseDir}"
 
+# Install Git and clone repo
+yum install -y git
+git clone https://github.com/oracle/oci-quickstart-wandisco.git
+
+cp -r oci-quickstart-wandisco/package/* ${BaseDir}
+
 #make the s3cmd tool configuration file s3cfg
 s3config=${BaseDir}/s3cfg
 
@@ -37,6 +43,7 @@ fi
 
 # get s3cmd to download package files
 yum -y install s3cmd
+cd ${BaseDir}/Fusion_Software
 s3cmd -c ${s3config} get -r --force $PackageLocation
 
 if [[ ! -e ${FusionSoftware} ]]
@@ -64,4 +71,3 @@ ${FusionScripts}/fusion_restart.bash
 printf "%s\n" "Finished - Cloud-init has completed Fusion setup"
 
 } &> ${BaseDir}/cloud-init.txt
-
