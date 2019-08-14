@@ -14,7 +14,7 @@
 
 # OCI Profile
 locals {
-  tenant = "partners"
+  tenant = "<your_tenancy_name>"
 }
 
 variable "tenancy_ocid" {}
@@ -46,8 +46,8 @@ variable "endpointurl" {
   type = "map"
 
   default = {
-    us-phoenix-1 = "https://partners.compat.objectstorage.us-phoenix-1.oraclecloud.com"
-    us-ashburn-1 = "https://partners.compat.objectstorage.us-ashburn-1.oraclecloud.com"
+    us-phoenix-1 = "https://<your_tenancy_name>.compat.objectstorage.us-phoenix-1.oraclecloud.com"
+    us-ashburn-1 = "https://<your_tenancy_name>.compat.objectstorage.us-ashburn-1.oraclecloud.com"
   }
 }
 
@@ -113,7 +113,7 @@ variable "images" {
     ca-toronto-1   = "ocid1.image.oc1.ca-toronto-1.aaaaaaaakjkxzw33dcocgu2oylpllue34tjtyngwru7pcpqn4qh2nwon7n7a"
     eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaandqh4s7a3oe3on6osdbwysgddwqwyghbx4t4ryvtcwk5xikkpvhq"
     uk-london-1    = "ocid1.image.oc1.uk-london-1.aaaaaaaa2xe7cufdwkksdazshtmqaddgd72kdhiyoqurtoukjklktf4nxkbq"
-    us-ashburn-1   = "ocid1.image.oc1.iad.aaaaaaaa4bfsnhv2cd766tiw5oraw2as7g27upxzvu7ynqwipnqfcfwqskla"
-    us-phoenix-1   = "ocid1.image.oc1.phx.aaaaaaaavtjpvg4njutkeu7rf7c5lay6wdbjhd4cxis774h7isqd6gktqzoa"
+    us-ashburn-1   = "ocid1.image.oc1.iad.aaaaaaaasorq3smbazoxvyqozz52ch5i5cexjojb7qvcefa5ubij2yjycy2a"
+    us-phoenix-1   = "ocid1.image.oc1.phx.aaaaaaaaa3vjdblyvw6rlz3jhjxudf6dpqsazqfynn3ziqrxyfox2wq5bdaq"
   }
 }
