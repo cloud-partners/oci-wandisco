@@ -5,31 +5,24 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Required by the OCI Provider
-#variable "compartment_ocid" {}
-#variable "tenancy_ocid" {}
-#variable "user_ocid" {}
-#variable "fingerprint" {}
-#variable "private_key_path" {}
-#variable "region"           {}
+variable "compartment_ocid" {}
+variable "tenancy_ocid" {}
+variable "user_ocid" {}
+variable "fingerprint" {}
+variable "private_key_path" {}
+variable "ssh_public_key"       {}
+
 
 # OCI Profile
-variable "tenant"               {default = "your_tenancy_name"}  
-variable "tenancy_ocid"         {default = "ocid1.tenancy.oc1..key"}
-variable "compartment_ocid"     {default = "ocid1.tenancy.oc1..key"}
-variable "user_ocid"            {default = "ocid1.user.oc1..key"}
-variable "fingerprint"          {default = "key"}
-
-# Key used to SSH to OCI VMs
-variable "private_key_path"     {default = "~/.ssh"}
-variable "ssh_public_key"       { your_ssh_public_key }
+variable "tenant"               {default = "your_tenancy_name"}
 
 # Object Storage
 variable "bucket"		{default = "fusion_metadata"}
-variable "accesskey" 		{default = "ocid1.credential.oc1..key"}           
+variable "accesskey" 		{default = "ocid1.credential.oc1..key"}
 variable "secretkey"	 	{default = "your_secret_key"}
 variable "endpointurl" {
-   type = "map" 
-   default = { 
+   type = "map"
+   default = {
      us-phoenix-1 = "https://your_tenancy_name.compat.objectstorage.us-phoenix-1.oraclecloud.com"
      us-ashburn-1 = "https://your_tenancy_name.compat.objectstorage.us-ashburn-1.oraclecloud.com"
    }
@@ -41,8 +34,8 @@ variable "endpointurl" {
 # Vars Required by Fusion
 # name uses subnet name instead of region
 variable "fqdn" {
-   type = "map" 
-   default = { 
+   type = "map"
+   default = {
      us-phoenix-1 = "fusion-server.phoenix.fusion.oraclevcn.com"
      us-ashburn-1 = "fusion-server.ashburn.fusion.oraclevcn.com"
    }
@@ -50,16 +43,16 @@ variable "fqdn" {
 
 # name distinguish servers in each location
 variable "subnet" {
-   type = "map" 
-   default = { 
+   type = "map"
+   default = {
      us-phoenix-1 = "phoenix"
      us-ashburn-1 = "ashburn"
    }
 }
 
 variable "zone" {
-   type = "map" 
-   default = { 
+   type = "map"
+   default = {
      us-phoenix-1 = "Proxy1"
      us-ashburn-1 = "Proxy2"
    }
