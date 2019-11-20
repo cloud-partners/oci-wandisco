@@ -2,13 +2,13 @@
 These are Terraform modules that deploy [WANdisco](https://www.wandisco.com/) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  They are developed jointly by Oracle and WANdisco.
 
 ## Prerequisites
-First off you'll need to do some pre-deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
+First off you'll need to do some pre-deploy setup.  That's all detailed [here](https://github.com/oracle-quickstart/oci-prerequisites).
 
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/oracle/oci-quickstart-wandisco.git
-    cd oci-quickstart-wandisco
+    git clone https://github.com/oracle-quickstart/oci-wandisco.git
+    cd oci-wandisco
     cd terraform1
     ls
 
