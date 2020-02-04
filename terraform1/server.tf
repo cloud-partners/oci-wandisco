@@ -45,7 +45,7 @@ data "oci_core_vnic" "fusion_server_vnic" {
   vnic_id = data.oci_core_vnic_attachments.fusion_server_vnic_attachments.vnic_attachments[0]["vnic_id"]
 }
 
-output "Your server has this IP/FQDN" {
+output "server_IP" {
   value = [
     "${data.oci_core_vnic.fusion_server_vnic.public_ip_address} ${var.fqdn[var.region]} ",
     "In about 5 mintues, browse and login with this FusionServerURL: http://${data.oci_core_vnic.fusion_server_vnic.public_ip_address}:8083 ",
@@ -53,4 +53,3 @@ output "Your server has this IP/FQDN" {
     "     and password:  ${var.fusion_server["adminPassword"]}",
   ]
 }
-
