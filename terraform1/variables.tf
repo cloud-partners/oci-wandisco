@@ -5,6 +5,9 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Required by the OCI Provider
+variable "region" {
+}
+
 variable "compartment_ocid" {
 }
 
@@ -25,35 +28,30 @@ variable "ssh_public_key" {
 
 # OCI Profile
 variable "tenant" {
-  default = "your_tenancy_name"
+  default = "partners"
 }
 
 # Object Storage
 variable "bucket" {
-  default = "fusion_metadata"
+  default = "mybucket"
 }
 
 variable "accesskey" {
-  default = "ocid1.credential.oc1..key"
+  default = "cdd7cefb47c573d847d8cecba75d96658ede6312"
 }
 
 variable "secretkey" {
-  default = "your_secret_key"
+  default = "QVM2lZ7O8WNa6V8iG/PP4jOVqi3pjlE+iH3M/Sumots="
 }
 
 variable "endpointurl" {
   type = map(string)
   default = {
-    us-phoenix-1 = "https://your_tenancy_name.compat.objectstorage.us-phoenix-1.oraclecloud.com"
-    us-ashburn-1 = "https://your_tenancy_name.compat.objectstorage.us-ashburn-1.oraclecloud.com"
+    us-phoenix-1 = "https://partners.compat.objectstorage.us-phoenix-1.oraclecloud.com"
+    us-ashburn-1 = "https://partners.compat.objectstorage.us-ashburn-1.oraclecloud.com"
   }
 }
 
-# Note: region variable is set in region.tf
-# assume 2 regions
-
-# Vars Required by Fusion
-# name uses subnet name instead of region
 variable "fqdn" {
   type = map(string)
   default = {
@@ -72,11 +70,7 @@ variable "subnet" {
 }
 
 variable "zone" {
-  type = map(string)
-  default = {
-    us-phoenix-1 = "Proxy1"
-    us-ashburn-1 = "Proxy2"
-  }
+  default = "Proxy1"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -84,16 +78,24 @@ variable "zone" {
 # The defaults here will give you a cluster.  You can also modify these.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "fusion_server" {
-  type = map(string)
-  default = {
-    shape         = "VM.Standard2.2"
-    node_count    = 1
-    package       = "s3://package"
-    adminUsername = "admin"
-    adminPassword = "admin"
-    proxy         = "0.0.0.0:8071"
-  }
+variable "shape" {
+ default = "VM.Standard2.2"
+}
+
+variable "adminUsername" {
+  default = "admin"
+}
+
+variable "adminPassword" {
+  default = "admin"
+}
+
+variable "node_count" {
+  default = 1
+}
+
+variable "proxy" {
+  default = "0.0.0.0:8071"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -106,10 +108,18 @@ variable "fusion_server" {
 variable "images" {
   type = map(string)
   default = {
-    eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaakzrywmh7kwt7ugj5xqi5r4a7xoxsrxtc7nlsdyhmhqyp7ntobjwq"
-    us-ashburn-1   = "ocid1.image.oc1.iad.aaaaaaaa2tq67tvbeavcmioghquci6p3pvqwbneq3vfy7fe7m7geiga4cnxa"
-    us-phoenix-1   = "ocid1.image.oc1.phx.aaaaaaaasez4lk2lucxcm52nslj5nhkvbvjtfies4yopwoy4b3vysg5iwjra"
-    uk-london-1    = "ocid1.image.oc1.uk-london-1.aaaaaaaalsdgd47nl5tgb55sihdpqmqu2sbvvccjs6tmbkr4nx2pq5gkn63a"
+      ap-mumbai-1 = "ocid1.image.oc1.ap-mumbai-1.aaaaaaaa46gx23hrdtxenjyt4p5cc3c4mbvyiqxcb3mmrxnmjn3rfxgvqcma"
+      ap-seoul-1 = "ocid1.image.oc1.ap-seoul-1.aaaaaaaavwjewurl3nvcyq6bgpbrapk4wfwu6qz2ljlrj2yk3cfqexeq64na"
+      ap-sydney-1 = "ocid1.image.oc1.ap-sydney-1.aaaaaaaae5qy5o6s2ve2lt4aetmd7s4ydpupowhs6fdl25w4qpkdidbuva5q"
+      ap-tokyo-1 = "ocid1.image.oc1.ap-tokyo-1.aaaaaaaa54xb7m4f42vckxkrmtlpys32quyjfldbkhq5zsbmw2r6v5hzgvkq"
+      ca-toronto-1 = "ocid1.image.oc1.ca-toronto-1.aaaaaaaagupuj5dfue6gvpmlzzppvwryu4gjatkn2hedocbxbvrtrsmnc5oq"
+      eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaa3bu75jht762mfvwroa2gdck6boqwyktztyu5dfhftcycucyp63ma"
+      eu-zurich-1 = "ocid1.image.oc1.eu-zurich-1.aaaaaaaadx6lizhaqdnuabw4m5dvutmh5hkzoih373632egxnitybcripb2a"
+      sa-saopaulo-1 = "ocid1.image.oc1.sa-saopaulo-1.aaaaaaaa3ke6hsjwdshzoh4mtjq3m6f7rhv4c4dkfljr53kjppvtiio7nv3q"
+      uk-london-1 = "ocid1.image.oc1.uk-london-1.aaaaaaaasutdhza5wtsrxa236ewtmfa6ixezlaxwxbw7vti2wyi5oobsgoeq"
+      us-ashburn-1 = "ocid1.image.oc1.iad.aaaaaaaaox73mjjcopg6damp7tssjccpp5opktr3hwgr63u2lacdt2nver5a"
+      us-langley-1 = "ocid1.image.oc2.us-langley-1.aaaaaaaaxyipolnyhfw3t34nparhtlez5cbslyzbvlwxky6ph4mh4s22zmnq"
+      us-luke-1 = "ocid1.image.oc2.us-luke-1.aaaaaaaa5dtevrzzxk35dwslew5e6zcqljtfu5hzolcedr467gzuqdg3ls5a"
+      us-phoenix-1 = "ocid1.image.oc1.phx.aaaaaaaauuj2b3bvpbtpcyrfdvxu7tuajrwsmajhn6uhvx4oquecap63jywa"
   }
 }
-
