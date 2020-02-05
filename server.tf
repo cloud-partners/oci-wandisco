@@ -26,7 +26,7 @@ resource "oci_core_instance" "fusion_server" {
         "export endpointurl=\"https://partners.compat.objectstorage.${var.region}.oraclecloud.com\"",
         "export accesskey=${var.accesskey}",
         "export secretkey=${var.secretkey}",
-        file("../scripts/server.sh"),
+        file("./scripts/server.sh"),
         ]
       ),
     )
