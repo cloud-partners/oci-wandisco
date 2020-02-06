@@ -26,11 +26,6 @@ variable "private_key_path" {
 variable "ssh_public_key" {
 }
 
-# OCI Profile
-variable "tenant" {
-  default = "partners"
-}
-
 # Object Storage
 variable "bucket" {
   default = "mybucket"
@@ -42,31 +37,6 @@ variable "accesskey" {
 
 variable "secretkey" {
   default = "QVM2lZ7O8WNa6V8iG/PP4jOVqi3pjlE+iH3M/Sumots="
-}
-
-variable "endpointurl" {
-  type = map(string)
-  default = {
-    us-phoenix-1 = "https://partners.compat.objectstorage.us-phoenix-1.oraclecloud.com"
-    us-ashburn-1 = "https://partners.compat.objectstorage.us-ashburn-1.oraclecloud.com"
-  }
-}
-
-variable "fqdn" {
-  type = map(string)
-  default = {
-    us-phoenix-1 = "fusion-server.phoenix.fusion.oraclevcn.com"
-    us-ashburn-1 = "fusion-server.ashburn.fusion.oraclevcn.com"
-  }
-}
-
-# name distinguish servers in each location
-variable "subnet" {
-  type = map(string)
-  default = {
-    us-phoenix-1 = "phoenix"
-    us-ashburn-1 = "ashburn"
-  }
 }
 
 variable "zone" {
