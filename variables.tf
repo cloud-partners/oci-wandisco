@@ -5,26 +5,19 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Required by the OCI Provider
-variable "region" {
-}
+variable "region" {}
 
-variable "compartment_ocid" {
-}
+variable "compartment_ocid" {}
 
-variable "tenancy_ocid" {
-}
+variable "tenancy_ocid" {}
 
-variable "user_ocid" {
-}
+variable "user_ocid" {}
 
-variable "fingerprint" {
-}
+variable "fingerprint" {}
 
-variable "private_key_path" {
-}
+variable "private_key_path" {}
 
-variable "ssh_public_key" {
-}
+variable "ssh_public_key" {}
 
 # Object Storage
 variable "bucket" {
