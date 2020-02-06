@@ -20,6 +20,7 @@ resource "oci_core_instance" "fusion_server" {
         "export proxy=${var.proxy}",
         "export fqdn=fusion-server.${oci_core_subnet.subnet.subnet_domain_name}",
         "export zone=${var.zone}",
+        "export base64_key=${var.base64_key}",
         "export node=${var.zone}_Node",
         "export bucket=${var.bucket}",
         "export region=${var.region}",
