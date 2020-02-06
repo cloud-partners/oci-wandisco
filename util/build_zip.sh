@@ -17,7 +17,8 @@ mkdir ./tmp_package
 #rm -rf README.md
 
 echo "Copying .tf files to tmp dir...."
-cp -v ../terraform1/*.tf ./tmp_package
+cp -v ../*.tf ./tmp_package
+cp -v ../schema.yml ./tmp_package
 echo "Copying script directory to tmp dir...."
 cp -rv ../scripts ./tmp_package
 
@@ -32,8 +33,6 @@ echo  "Removing variables unallowed by ORM..."
 sed -i '' "s/variable \"user_ocid\" {}//g" ./tmp_package/variables.tf
 sed -i '' "s/variable \"fingerprint\" {}//g" ./tmp_package/variables.tf
 sed -i '' "s/variable \"private_key_path\" {}//g" ./tmp_package/variables.tf
-
-sed -i '' "s:file(\"../scripts/server.sh\"):file(\"./scripts/server.sh\"):g" ./tmp_package/server.tf
 
 # Add latest git log entry
 git log -n 1 > ./tmp_package/git.log
