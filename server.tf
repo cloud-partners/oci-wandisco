@@ -14,20 +14,20 @@ resource "oci_core_instance" "fusion_server" {
       join(
         "\n",
         [
-        "#!/usr/bin/env bash",
-        "export adminUsername=${var.adminUsername}",
-        "export adminPassword=${var.adminPassword}",
-        "export proxy=${var.proxy}",
-        "export fqdn=fusion-server.${oci_core_subnet.subnet.subnet_domain_name}",
-        "export zone=${var.zone}",
-        "export base64_key=${var.base64_key}",
-        "export node=${var.zone}_Node",
-        "export bucket=${var.bucket}",
-        "export region=${var.region}",
-        "export endpointurl=\"https://${data.oci_identity_tenancy.tenancy.name}.compat.objectstorage.${var.region}.oraclecloud.com\"",
-        "export accesskey=${var.accesskey}",
-        "export secretkey=${var.secretkey}",
-        file("./scripts/server.sh"),
+          "#!/usr/bin/env bash",
+          "export adminUsername=${var.adminUsername}",
+          "export adminPassword=${var.adminPassword}",
+          "export proxy=${var.proxy}",
+          "export fqdn=fusion-server.${oci_core_subnet.subnet.subnet_domain_name}",
+          "export zone=${var.zone}",
+          "export base64_key=${var.base64_key}",
+          "export node=${var.zone}_Node",
+          "export bucket=${var.bucket}",
+          "export region=${var.region}",
+          "export endpointurl=\"https://${data.oci_identity_tenancy.tenancy.name}.compat.objectstorage.${var.region}.oraclecloud.com\"",
+          "export accesskey=${var.accesskey}",
+          "export secretkey=${var.secretkey}",
+          file("./scripts/server.sh"),
         ]
       ),
     )
@@ -48,7 +48,7 @@ data "oci_core_vnic" "fusion_server_vnic" {
 }
 
 data "oci_identity_tenancy" "tenancy" {
-    tenancy_id = "${var.tenancy_ocid}"
+  tenancy_id = "${var.tenancy_ocid}"
 }
 
 
