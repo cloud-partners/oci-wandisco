@@ -1,0 +1,97 @@
+title: "Top Level Title"
+schemaVersion: 1.0.0
+version: "20190612"
+locale: "en"
+groupings:
+  - title: "Hidden General Configuration"
+    visible: false
+    variables:
+    - tenancy_ocid
+    - compartment_ocid
+    - region
+    - mp_listing_id
+    - mp_listing_resource_id
+    - mp_listing_resource_version
+    - use_marketplace_image
+    # QS specific platform vars
+    - platform-images
+    - node_count
+
+
+  - title: "Fusion Server Configuration"
+    visible: true
+    variables:
+    - ssh_public_key
+    - shape
+    - base64_key
+    - adminUsername
+    - adminPassword
+    - bucket
+    - accesskey
+    - secretkey
+    - zone
+    - proxy
+
+variables:
+
+  shape:
+    title: "Instance Shape"
+    description: "Shape for Fusion server instance."
+    type: oci:core:instanceshape:name
+    default: "VM.Standard2.4"
+    required: true
+    dependsOn:
+      compartmentId: ${compartment_ocid}
+
+  ssh_public_key:
+    description: "SSH public key for instance."
+    type: string
+    required: true
+
+  base64_key:
+    title: "License Key"
+    description: "Fusion license file content, base64 encoded."
+    type: string
+    required: true
+
+  adminUsername:
+    title: "Admin User"
+    description: "Name of default admin user."
+    type: string
+    required: true
+    default: "admin"
+
+  adminPassword:
+    title: "Admin User Password"
+    description: "Password for default admin user."
+    type: password
+    required: true
+
+  accesskey:
+    title: "Access Key"
+    description: "Acess key for S3 API"
+    type: password
+    required: true
+
+  secretkey:
+    title: "Secret Key"
+    description: "Secret key for S3 API."
+    type: password
+    required: true
+
+  bucket:
+    title: "Bucket Name"
+    description: "Name of object storage bucket for zone."
+    type: string
+    required: true
+
+  zone:
+    title: "Zone Name"
+    type: string
+    required: true
+
+  proxy:
+    title: "Proxy"
+    description: "Proxy IP:port"
+    type: string
+    required: true
