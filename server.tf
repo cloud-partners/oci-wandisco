@@ -1,3 +1,9 @@
+locals {
+  # Logic to choose platform or mkpl image based on
+  # var.use_marketplace_image
+  image          = var.use_marketplace_image ? var.mp_listing_resource_id : var.image
+}
+
 resource "oci_core_instance" "fusion_server" {
   display_name        = "fusion_server"
   compartment_id      = var.compartment_ocid
@@ -5,7 +11,7 @@ resource "oci_core_instance" "fusion_server" {
   shape               = var.shape
   subnet_id           = oci_core_subnet.subnet.id
   source_details {
-    source_id   = var.images[var.region]
+    source_id   = local.image
     source_type = "image"
   }
   metadata = {
