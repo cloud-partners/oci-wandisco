@@ -38,7 +38,7 @@ resource "oci_core_instance" "fusion_server" {
       ),
     )
   }
-  count = var.node_count
+  count = 1
 }
 
 data "oci_core_vnic_attachments" "fusion_server_vnic_attachments" {
