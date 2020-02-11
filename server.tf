@@ -61,7 +61,6 @@ data "oci_identity_tenancy" "tenancy" {
 output "server_IP" {
   value = [
     "In about 5 mintues, browse and login with this FusionServerURL: http://${data.oci_core_vnic.fusion_server_vnic.public_ip_address}:8083 ",
-    "    with username:  ${var.adminUsername} ",
-    "    and password:  ${var.adminPassword}"
+    "    with username/password chosen as variables."
   ]
 }
