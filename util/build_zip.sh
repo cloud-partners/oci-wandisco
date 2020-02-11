@@ -4,7 +4,7 @@
 # Will build zip file off remote master to pass to ORM
 # TESTING against local files!!!!
 
-echo "TEST cleanup"
+echo "Cleanup tmp_package and package.zip"
 rm -rf ./tmp_package
 rm package.zip
 
