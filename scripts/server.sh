@@ -24,10 +24,10 @@ cd "${BaseDir}"
 #EOF
 
 
-wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/sdRtbGYlJ4_wd5qwVQ-AFSNt0dFsks-em5r1yuLDO98/n/partners/b/package/o/setup_scripts.zip
-wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/-YzzM8HLCQZq7pu0kEKDhzLeTciXXGdqDkDysVnETZg/n/partners/b/package/o/multicloud-installer-2.0.1.1.379.sh
-wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/665tvVEHGHxW7F2IEMNMq5IPq3aZ1C7yOk_W-_faico/n/partners/b/package/o/fusion-ui-server-s3_rpm_installer.2.14.sh
-# https://objectstorage.us-ashburn-1.oraclecloud.com/p/T1cGagQ_ajUBukdYizSlf_csYRYxnvyQ0DhvatYt7c8/n/partners/b/package/o/fusion-ui-server-s3_rpm_installer.2.15.1.sh
+wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/S_sIPT1529buqP0gkBqpLPm4zhItDBTqzIis_4mlPlM/n/id45pwgtjyzz/b/package/o/fusion-ui-server-s3_rpm_installer.2.14.sh
+#wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/PVx_oJbjrB5Z6R-IrOsM30I6vjydK3w0vBBu5Sx2Hdg/n/id45pwgtjyzz/b/package/o/fusion-ui-server-s3_rpm_installer.2.15.1.sh
+wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/N-eATubFUQY4sbvQWC0QOxMc_AiHDVlkyaqAtdBiT24/n/id45pwgtjyzz/b/package/o/multicloud-installer-2.0.1.1.379.sh
+wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/EmC9_9FC75mbdZMF37tJgtu-Si3uO4KQ2aPjvXfAwK8/n/id45pwgtjyzz/b/package/o/setup_scripts.zip
 
 unzip setup_scripts.zip
 mv multicloud*.sh fusion*.sh ${FusionSoftware}
