@@ -16,6 +16,7 @@ groupings:
     # QS specific platform vars
     - platform-images
     - node_count
+    - image
 
 
   - title: "Fusion Server Configuration"
@@ -69,19 +70,19 @@ variables:
 
   accesskey:
     title: "Access Key"
-    description: "Acess key for S3 API"
+    description: "Acess key for S3 API."
     type: password
     required: true
 
   secretkey:
     title: "Secret Key"
-    description: "Secret key for S3 API."
+    description: "Secret key for S3 API. NOTE, this key is present in the state file. Either restrict access to this stack or rotate the key post deploy."
     type: password
     required: true
 
   bucket:
     title: "Bucket Name"
-    description: "Name of object storage bucket for zone."
+    description: "Name of object storage bucket for zone. This bucket MUST exist prior to deploy."
     type: string
     required: true
 
